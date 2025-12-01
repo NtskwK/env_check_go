@@ -127,7 +127,6 @@ func PrintDotNetRuntimes() {
 		fmt.Printf("\n%s:\n", name)
 		for _, rt := range versions {
 			fmt.Printf("  - 版本: %s\n", rt.Version)
-			fmt.Printf("    路径: %s\n", rt.Path)
 		}
 	}
 
@@ -292,14 +291,8 @@ func PrintVCRuntimes() {
 	versionOrder := []string{"2015-2022", "2013", "2012", "2010", "2008", "2005"}
 
 	for _, version := range versionOrder {
-		if archs, exists := grouped[version]; exists {
-			fmt.Printf("\nVisual C++ %s Redistributable:\n", version)
-			for _, rt := range archs {
-				fmt.Printf("  - 架构: %s\n", rt.Architecture)
-				fmt.Printf("    DLL: %s\n", rt.DLLPath)
-			}
+		if _, exists := grouped[version]; exists {
+			fmt.Printf("\nVisual C++ %s Redistributable", version)
 		}
 	}
-
-	fmt.Printf("\n总计: %d 个 VC++ Runtime\n", len(runtimes))
 }
