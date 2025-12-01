@@ -19,4 +19,10 @@ func main() {
 	} else {
 		fmt.Println("GPU not found")
 	}
+
+	// 检测 .NET Runtimes
+	PrintDotNetRuntimes()
+
+	// 检测 VC++ Runtimes (仅 Windows)
+	PrintVCRuntimes()
 }

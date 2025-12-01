@@ -21,7 +21,7 @@ func GetOSInfo() string {
 	if err != nil {
 		return fmt.Sprintf("获取操作系统信息失败: %v", err)
 	}
-	return fmt.Sprintf("%s %s (Arch: %s)", hInfo.Platform, hInfo.PlatformVersion, runtime.GOARCH)
+	return fmt.Sprintf("%s %s", hInfo.Platform, hInfo.PlatformVersion)
 }
 
 func GetCPUModel() string {
